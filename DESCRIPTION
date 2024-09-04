@@ -1,0 +1,26 @@
+Package: GFWalerts
+Type: Package
+Title: Deforestation Alert System using Global Forest Watch API
+Version: 0.1.0
+Authors@R: 
+    person(given = "Brittany",
+           family = "Trew",
+           email = "brittany.trew@rspb.org.uk",
+           role = c("aut", "cre"))
+Maintainer: Brittany Trew <brittany.trew@rspb.org.uk>
+Description: A package to interact with the Global Forest Watch API to request and download the integrated deforestation alerts from Global Forest Watch.
+License: MIT
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.3.2
+Depends: R (>= 3.6)
+Imports: 
+    httr,
+    jsonlite,
+    sf,
+    readr,
+    dplyr,
+    terra,
+    tidyr,
+    lubridate
+
