@@ -103,7 +103,7 @@ geom.define <- function(xmn, xmx, ymn, ymx) {
 #' @param url character. url for the dataset from Global Forest Watch (see description)
 #' @return Returns a list of fields associated with the dataset defined by your url.
 #' @export
-print.fields <- function(url){
+show.fields <- function(url){
   response <- GET(url)
   df_response <- content(response, "parsed")
   for(i in 1:length(df_response$data)){
@@ -210,7 +210,7 @@ run.download.month <- function(target, api.key, geom.ext,
                                max_retries = 3, retry_delay = 5){
   
   # Split the month into short time steps
-  split.seq <- split.month(target)
+  split.seq <- chunk.month(target)
   
   list_month <- list()
   itn <- 1
@@ -266,7 +266,7 @@ run.download.month <- function(target, api.key, geom.ext,
 #' 
 #' @return A list consisting of a sequence of start and end dates to split the month, plus the first and last dates in the month.
 #' @export
-split.month <- function(target) {
+chunk.month <- function(target) {
   target_month <- target[1]
   target_year <- target[2]
   start_date <- as.Date(paste(target_year, target_month, "01", sep = "-"))
